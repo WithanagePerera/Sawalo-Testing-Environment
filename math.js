@@ -5,9 +5,11 @@ const url = window.location.href.toLowerCase();
 
 // English, Math, Chemistry, Biology, Physics, History, 
 var scores = new Array(2);
+scores[0] = new Array("English", "Math", "Chemistry", "Biology", "Physics", "History", "Spanish");
+
 for (var i = 0; i < scores.length; i++)
 {
-    scores[i] = new Array[7];
+    console.log(scores[i]);
 }
 
 if (url.includes("math"))
