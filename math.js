@@ -1,8 +1,14 @@
 const urlDiv = document.querySelector('#url-detect');
 const titleDiv = document.querySelector('#title-detect');
 const headerDiv = document.querySelector('#header-detect');
-
 const url = window.location.href.toLowerCase();
+
+// English, Math, Chemistry, Biology, Physics, History, 
+var scores = new Array(2);
+for (var i = 0; i < scores.length; i++)
+{
+    scores[i] = new Array[7];
+}
 
 if (url.includes("math"))
 {
