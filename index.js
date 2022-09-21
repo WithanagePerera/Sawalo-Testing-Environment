@@ -19,11 +19,14 @@ for (var i = 0; i < scores[0].length; i++)
         scores[1][i] += 1;
 
     if (title.includes(scores[0][i]))
-        scores[1][i] += 1;
+        scores[1][i] += 2;
 
     if (header.includes(scores[0][i]))
-        scores[1][i] += 1;
+        scores[1][i] += 3;
 }
+
+
+var smallestScores = new Array();
 
 // Finds largest score and associated subject
 let x = Number.MIN_VALUE;
@@ -38,8 +41,30 @@ for (var i = 0; i < scores[1].length; i++)
     }    
 }
 
+scores[1][scores[0].indexOf(subject)] = -1;
+
+smallestScores.push(subject);
+
+for (var i = 0; i < scores[1].length; i++)
+{
+    if (scores[1][i] == x)
+        smallestScores.push(scores[0][i]);
+}
+
 // Injects HTML stating subject detected.
-subjectResult.innerHTML = 
-`
-    <h2>Tests validate ${subject} as the subject of the page.</h2>
-`;
+if (smallestScores.length > 1)
+{
+    subjectResult.innerHTML = 
+    `
+        <h2>Tests could not validate a subject for the page.</h2>
+    `
+}
+else
+{
+    subjectResult.innerHTML = 
+    `
+        <h2>Tests validate ${subject} as the subject of the page.</h2>
+    `;
+}
+
+console.log("Tests validate " + subject);
