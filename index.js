@@ -99,19 +99,19 @@ for (var i = 0; i < scores[1].length; i++)
 }
 
 // Injects HTML stating subject detected.
-if (smallestScores.length > 1)
-{
-    subjectResult.innerHTML = 
-    `
-        <h2>Tests could not validate a subject for the page.</h2>
-    `
-}
-else
-{
-    subjectResult.innerHTML = 
-    `
-        <h2>Tests validate ${subject} as the subject of the page.</h2>
-    `;
-}
+// if (smallestScores.length > 1)
+// {
+//     subjectResult.innerHTML = 
+//     `
+//         <h2>Tests could not validate a subject for the page.</h2>
+//     `;
+// }
+// else
+// {
+//     subjectResult.innerHTML = 
+//     `
+//         <h2>Tests validate ${subject} as the subject of the page.</h2>
+//     `;
+// }
 
 console.log("Tests validate " + subject);

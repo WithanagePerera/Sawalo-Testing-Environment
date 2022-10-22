@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "testing environment",
+    "version": "1.0",
+    "background":
+    {
+        "scripts": ["pageCapture.js"]
+    },
+
+    "permissions":
+    [
+        "tabs",
+        "activeTab",
+        "pageCapture",
+        "downloads",
+        "<all_urls>"
+    ]
+}
