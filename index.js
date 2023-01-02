@@ -1,3 +1,5 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 const subjectResult = document.querySelector('#subject-result');
 let url = window.location.href.toLowerCase();
 const html = document.documentElement.innerHTML;
@@ -23,34 +25,7 @@ header = header.substring(header.lastIndexOf(">") + 1);
 
 const scores = new Map();
 
-// // English
-// scores.set("english", 0);
-// scores.set("language arts", 0);
-// scores.set("reading", 0);
-// scores.set("ela", 0);
-
-// // Language
-// scores.set("spanish", 0);
-// scores.set("french", 0);
-
-// // Math
-// scores.set("math", 0);
-// scores.set("algebra", 0);
-// scores.set("geometry", 0);
-// scores.set("precalculus", 0);
-// scores.set("pre-calculus", 0);
-// scores.set("calculus", 0);
-
-// // Science
-// scores.set("science", 0);
-// scores.set("chemistry", 0);
-// scores.set("biology", 0);
-// scores.set("physics", 0);
-
-// // History
-// scores.set("history", 0);
-// scores.set("human geography", 0);
-// scores.set("social studies", 0);
+// Work on sub-arrays for subject score
 
 scores[0] = new Array("english", "language arts", "reading", "ela", "spanish", "french", "math", "algebra", "geometry", "precalculus", "pre-calculus", "calculus", "science", "chemistry", "biology", "physics", "history", "human geography", "social studies");
 scores[1] = new Array(scores[0].length);
@@ -98,20 +73,19 @@ for (var i = 0; i < scores[1].length; i++)
         smallestScores.push(scores[0][i]);
 }
 
-// Injects HTML stating subject detected.
-// if (smallestScores.length > 1)
-// {
-//     subjectResult.innerHTML = 
-//     `
-//         <h2>Tests could not validate a subject for the page.</h2>
-//     `;
-// }
-// else
-// {
-//     subjectResult.innerHTML = 
-//     `
-//         <h2>Tests validate ${subject} as the subject of the page.</h2>
-//     `;
-// }
-
 console.log("Tests validate " + subject);
+
+function communicateSubject()
+{
+    jQuery.ajax(
+        {
+            type: "POST",
+            url: "",
+            data: {recordSubject: subject},
+            dataType: "script"
+        }
+    ).complete(function(result)
+    {
+        console.log(result);
+    })
+}
